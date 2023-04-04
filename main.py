@@ -7,9 +7,11 @@ Created on Thu Jul 28 12:33:00 2022
 """
 import tkinter as tk
 
-def show_entry_fields():
-    Pil_tot = str(int(Pil_av) + int(Pil_ar))
-    print("Immat: %s\nMasse pilotes totale: %s" % (Planeur_input.get(), Pil_tot.get()))
+def Calculer():
+    P1 = int(Pil_av.get())
+    P2 = int(Pil_ar.get())
+    Pil_tot = P1 + P2
+    print("Immat: %s\nMasse pilotes totale: %s" % (Planeur_input.get(), Pil_tot))
 
 T77 = [398, -1.140, -0.011, 0.685] #[Poids à vide (kg), bras de levier pilote avant(m), bras de levier pilote arrière(mm), bras de levier CG vide]
 T41 = [409, -1.140, -0.011, 0.71265]
@@ -46,7 +48,7 @@ tk.Button(frame,
                                     pady=4)
 tk.Button(frame,
             text='Calculer',
-            command=show_entry_fields).grid(row=3,
+            command=Calculer).grid(row=3,
                                     column=1,
                                     sticky=tk.W,
                                     pady=4)
