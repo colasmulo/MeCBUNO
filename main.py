@@ -20,19 +20,16 @@ Planeur_list_str = ["T77", "T41", "JI", "LK", "PAP", "C4"]
 def Calculer():
     P1 = int(Pil_av.get())
     P2 = int(Pil_ar.get())
-    Pil_tot = P1 + P2
     pl_index = Planeur_list_str.index(Planeur_input.get())
     Masse = Planeur_list[pl_index][0] + P1 + P2
     Moment = Planeur_list[pl_index][1]*P1 + Planeur_list[pl_index][2]*P2 + Planeur_list[pl_index][3]*Planeur_list[pl_index][0]
-    CG = round(Moment/Masse, 4)*1000
-    tk.Label(frame, text="Immat: %s\nCentre de gravité: %s" % (Planeur_input.get(), CG)).grid(row=4)
-    #print("Immat: %s\nCentre de gravité: %s" % (Planeur_input.get(), CG))
+    CG = round(Moment/Masse, 1)*1000
+    tk.Label(frame, text="Immat: %s\nPosition du centre de gravité (en m): %s" % (Planeur_input.get(), CG)).grid(row=4)
 
 # Top level window
 frame = tk.Tk()
 frame.title("Masse et Centrage BUNO")
 frame.config(bg = 'gray50')
-#frame.geometry('400x200')
 #Immat planeur
 tk.Label(frame, text="Entrez l'immat concours du planeur :").grid(row=0)
 Planeur_input = tk.Entry(frame)
