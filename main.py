@@ -7,20 +7,26 @@ Created on Thu Jul 28 12:33:00 2022
 """
 import tkinter as tk
 
-def Calculer():
-    P1 = int(Pil_av.get())
-    P2 = int(Pil_ar.get())
-    Pil_tot = P1 + P2
-    print("Immat: %s\nMasse pilotes totale: %s" % (Planeur_input.get(), Pil_tot))
-
+#Variables, listes
 T77 = [398, -1.140, -0.011, 0.685] #[Poids à vide (kg), bras de levier pilote avant(m), bras de levier pilote arrière(mm), bras de levier CG vide]
 T41 = [409, -1.140, -0.011, 0.71265]
 JI = [409, -1.350, -0.270, 0.783]
 LK = [412.8, -1.350, -0.270, 0.803]
-PAP = [310, -5, 10]
-C4 = [310, -5, 10]
+PAP = [310, -5, 10, 0.7]#Valeurs par défaut à corriger
+C4 = [310, -5, 10, 0.7]#Valeurs par défaut à corriger
 Planeur_list = [T77, T41, JI, LK, PAP, C4]
 Planeur_list_str = ["T77", "T41", "JI", "LK", "PAP", "C4"]
+
+def Calculer():
+    P1 = int(Pil_av.get())
+    P2 = int(Pil_ar.get())
+    Pil_tot = P1 + P2
+    pl_index = Planeur_list_str.index(Planeur_input.get())
+    Masse = Planeur_list[pl_index][0] + P1 + P2
+    Moment = Planeur_list[pl_index][1]*P1 + Planeur_list[pl_index][2]*P2 + Planeur_list[pl_index][3]*Planeur_list[pl_index][0]
+    CG = round(Moment/Masse, 4)*1000
+    tk.Label(frame, text="Immat: %s\nCentre de gravité: %s" % (Planeur_input.get(), CG)).grid(row=4)
+    #print("Immat: %s\nCentre de gravité: %s" % (Planeur_input.get(), CG))
 
 # Top level window
 frame = tk.Tk()
@@ -54,12 +60,3 @@ tk.Button(frame,
                                     pady=4)
 
 frame.mainloop()
-#("Entrez l'immat concours du planeur :")
-
-#Pil_av = int(input ("Masse du pilote avant en kilos :"))
-#Pil_ar = int(input ("Masse du pilote arrière en kilos (0 si  pas de pilote arrière):"))
-#pl_index = Planeur_list_str.index(Planeur_input)
-#Masse = Planeur_list[pl_index][0] + Pil_av + Pil_ar
-#Moment = Planeur_list[pl_index][1]*Pil_av + Planeur_list[pl_index][2]*Pil_ar + Planeur_list[pl_index][3]*Planeur_list[pl_index][0]
-#CG = round(Moment/Masse, 4)*1000
-#print("Centre de gravité en mm:", CG)
