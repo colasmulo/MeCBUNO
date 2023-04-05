@@ -23,7 +23,7 @@ def Calculer():
     pl_index = Planeur_list_str.index(Planeur_input.get())
     Masse = Planeur_list[pl_index][0] + P1 + P2
     Moment = Planeur_list[pl_index][1]*P1 + Planeur_list[pl_index][2]*P2 + Planeur_list[pl_index][3]*Planeur_list[pl_index][0]
-    CG = round(Moment/Masse, 1)*1000
+    CG = round(Moment/Masse, 4)*1000
     tk.Label(frame, text="Immat: %s\nPosition du centre de gravité (en m): %s" % (Planeur_input.get(), CG)).grid(row=4)
 
 # Top level window
