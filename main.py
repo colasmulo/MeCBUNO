@@ -26,7 +26,7 @@ def Calculer():
     Masse = Planeur_list[pl_index][0] + P1 + P2
     Moment = Planeur_list[pl_index][1]*P1 + Planeur_list[pl_index][2]*P2 + Planeur_list[pl_index][3]*Planeur_list[pl_index][0]
     CG = round((Moment/Masse)*1000, 2)
-    tk.Label(frame, text="Immat: %s\nPosition du centre de gravité (en mm): %s" % (Planeur_input, CG)).grid(row=4)
+    tk.Label(frame, text="Planeur : %s\nPosition du centre de gravité (en mm): %s" % (Planeur_input, CG)).grid(row=4)
 
 # Top level window
 frame = tk.Tk()
