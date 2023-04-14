@@ -7,8 +7,7 @@ Created on Thu Jul 28 12:33:00 2022
 """
 import tkinter as tk
 from tkinter import ttk
-from planeur_ddb import Planeur_list
-from planeur_ddb import Planeur_list_str
+from planeur_ddb import Planeur_list, Planeur_list_str
 
 def Calculer():
     P1 = int(Pil_av.get())
