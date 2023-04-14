@@ -7,6 +7,7 @@ Created on Thu Jul 28 12:33:00 2022
 """
 import tkinter as tk
 from tkinter import ttk
+from planeur_ddb import 
 
 #Variables, listes
 T77 = [398, -1.140, -0.011, 0.685] #[Poids à vide (kg), bras de levier pilote avant(m), bras de levier pilote arrière(mm), bras de levier CG vide]
