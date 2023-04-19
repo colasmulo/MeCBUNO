@@ -7,7 +7,7 @@ Created on Thu Jul 28 12:33:00 2022
 """
 import tkinter as tk
 from tkinter import ttk
-#from planeur_ddb import Planeur_list, Planeur_list_str
+from planeur_ddb import Planeur_list, Planeur_list_str
 
 Clubs = ["BUNO", "ORLEANS"]
 
@@ -29,7 +29,8 @@ tk.Label(frame, text="Selectionnez le club :").grid(row=0)
 Club_deroul = ttk.Combobox(frame, values=Clubs)
 Club_deroul.grid(row=0, column=1)
 Club_sel = Club_deroul.get()
-from Club_sel import Planeur_list, Planeur_list_str
+#club_mod = __import__(planeur_ddb)
+#from Club_sel import Planeur_list, Planeur_list_str
 #Immat planeur
 tk.Label(frame, text="Selectionnez l'immat concours du planeur :").grid(row=1)
 Immat_deroul = ttk.Combobox(frame, values=Planeur_list_str)
