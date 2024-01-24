@@ -10,7 +10,7 @@ from setuptools import setup
 NAME = "MeC_BUNO"
 APP = ['main.py']
 DATA_FILES = []
-OPTIONS = {}
+OPTIONS = {'iconfile': 'MeCBUNO.icns'}
 
 setup(
     app=APP,
