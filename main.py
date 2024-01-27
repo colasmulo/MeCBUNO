@@ -11,6 +11,14 @@ from planeur_ddb import Planeur_list, Planeur_list_str
 
 Planeur_type = ["Monoplace","Biplace"]
 
+def update_immat_combobox(*args):
+    # Update the values of the second combobox based on the selected value of the first combobox
+    selected_value = var.get()
+    if selected_value == "Monoplace":
+        Immat_deroul["values"] = Planeur_list_str[6:]
+    elif selected_value == "Biplace":
+        Immat_deroul["values"] = Planeur_list_str[0:6]
+
 def Calculer():#possibilite pour remplacer calculer mono : ajouter une condition dans calculer duo, où si le type de planeur est mono, forcer les valeurs de P2 à 0
     Type_sel = Type_deroul.get()
     P1 = int(Pil_av.get())
@@ -28,18 +36,25 @@ def Calculer():#possibilite pour remplacer calculer mono : ajouter une condition
 # Top level window
 frame = tk.Tk()
 frame.title("Masse et Centrage BUNO")
-#Choix type planeur
-tk.Label(frame, text="Selectionnez le type de planeur :").grid(row=0)
-Type_deroul = ttk.Combobox(frame, values=Planeur_type)
+
+# Choix du type de planeur avec var bind au combobox
+var = tk.StringVar()
+Type_deroul = ttk.Combobox(frame, textvariable=var, values=Planeur_type)
 Type_deroul.grid(row=0, column=1)
+
+# Add a trace to the variable
+var.trace_add('write', update_immat_combobox)
+
 #Immat planeur
 tk.Label(frame, text="Selectionnez l'immat concours du planeur :").grid(row=1)
 Immat_deroul = ttk.Combobox(frame, values=Planeur_list_str)
 Immat_deroul.grid(row=1, column=1)
+
 #Poids pil avant
 tk.Label(frame, text="Masse du pilote avant en kilos :").grid(row=2)
 Pil_av = tk.Entry(frame)
 Pil_av.grid(row=2, column=1)
+
 #Poids pil arriere
 tk.Label(frame, text="Masse du pilote arrière en kilos (0 si  pas de pilote arrière):").grid(row=3)
 Pil_ar = tk.Entry(frame)
