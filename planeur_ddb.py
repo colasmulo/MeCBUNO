@@ -7,5 +7,5 @@ LK = [412.8, -1.350, -0.270, 0.803]
 PAP = [310, -5, 10, 0.7]#Valeurs par défaut à corriger
 C4 = [310, -5, 10, 0.7]#Valeurs par défaut à corriger
 E14 = [210, -1.1, 0, 0.5]
-Planeur_list = [T77, T41, JI, LK, PAP, C4, E14]
+Planeur_list = [T77, T41, JI, LK, PAP, C4, E14] #Biplaces puis monoplaces à partir de l'indice 6
 Planeur_list_str = ["T77", "T41", "JI", "LK", "PAP", "C4", "E14"]
