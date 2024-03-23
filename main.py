@@ -39,6 +39,7 @@ frame.title("Masse et Centrage BUNO")
 
 # Choix du type de planeur avec var bind au combobox
 var = tk.StringVar()
+tk.Label(frame, text="Type de planeur :").grid(row=0)
 Type_deroul = ttk.Combobox(frame, textvariable=var, values=Planeur_type)
 Type_deroul.grid(row=0, column=1)
 
