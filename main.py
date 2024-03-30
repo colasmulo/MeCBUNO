@@ -11,13 +11,19 @@ from planeur_ddb import Planeur_list, Planeur_list_str
 
 Planeur_type = ["Monoplace","Biplace"]
 
+bp = 0 #break point for the index of the first Monoplace in list Planeur_list_str
+for i in Planeur_list_str:
+    bp+=1
+    if i =="break":
+        n = bp
+
 def update_immat_combobox(*args):
     # Update the values of the second combobox based on the selected value of the first combobox
     selected_value = var.get()
     if selected_value == "Monoplace":
-        Immat_deroul["values"] = Planeur_list_str[6:]
+        Immat_deroul["values"] = Planeur_list_str[n+1:]
     elif selected_value == "Biplace":
-        Immat_deroul["values"] = Planeur_list_str[0:6]
+        Immat_deroul["values"] = Planeur_list_str[0:n-1]
 
 def Calculer():#possibilite pour remplacer calculer mono : ajouter une condition dans calculer duo, où si le type de planeur est mono, forcer les valeurs de P2 à 0
     Type_sel = Type_deroul.get()
