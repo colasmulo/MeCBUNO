@@ -11,7 +11,7 @@ from planeur_ddb import Planeur_list, Planeur_list_str
 
 Planeur_type = ["Monoplace","Biplace"]
 
-bp = 0 #break point for the index of the first Monoplace in list Planeur_list_str
+bp = 0 #break point pour déterminer l'index du premier monplace dans Planeur_list_str
 for i in Planeur_list_str:
     bp+=1
     if i =="break":
