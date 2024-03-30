@@ -21,7 +21,7 @@ def update_immat_combobox(*args):
     # Update the values of the second combobox based on the selected value of the first combobox
     selected_value = var.get()
     if selected_value == "Monoplace":
-        Immat_deroul["values"] = Planeur_list_str[n+1:]
+        Immat_deroul["values"] = Planeur_list_str[n:]
     elif selected_value == "Biplace":
         Immat_deroul["values"] = Planeur_list_str[0:n-1]
 
